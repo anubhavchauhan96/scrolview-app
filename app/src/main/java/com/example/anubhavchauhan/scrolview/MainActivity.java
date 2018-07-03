@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                 for(int i=0; i<data.size();i++)
                 {
-                    textView.setText(textView.getText() + "info \n"+data.get(i));
+                    textView.setText(textView.getText() +data.get(i));
                 }
             }
         });
