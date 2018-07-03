@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<String> data =new ArrayList<>();
     EditText text1,text2,text3,text4,text5,text6,text7,text8,text9,text10;
     Button btn;
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         text9 = findViewById(R.id.editText19);
         text10 = findViewById(R.id.editText20);
         btn = findViewById(R.id.button);
+        textView=findViewById(R.id.textView);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 data.add(phone);
                 data.add(age);
                 data.add(branch);
-                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                intent.putExtra("data",data);
-                startActivity(intent);
+
+                for(int i=0; i<data.size();i++)
+                {
+                    textView.setText(textView.getText() + "info \n"+data.get(i));
+                }
             }
         });
     }
